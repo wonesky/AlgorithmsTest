@@ -1,4 +1,5 @@
 package sort;
+import sort.Util;
 
 public class Merge{
     private static Comparable[] aux; //归并排序辅助数组
@@ -37,50 +38,21 @@ public class Merge{
         for(int k = lo; k <= hi; k++){
             if      (i > mid)              a[k] = aux[j++]; //左半边用尽取右半边元素
             else if (j > hi)               a[k] = aux[i++]; //右半边用尽取左半边元素
-            else if (less(aux[i],aux[j]))  a[k] = aux[i++]; //左半边的当前元素小于右半边的当前元素，取左半边的
+            else if (Util.less(aux[i],aux[j]))  a[k] = aux[i++]; //左半边的当前元素小于右半边的当前元素，取左半边的
             else                           a[k] = aux[j++]; //右半边的当前元素小于左半边的当前元素，取右半边的
         }
     }
 
-    // private static boolean less(int a, int b){
-    //     return a < b? true:false;
-    // }
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
-
-    // private static void exch(int[] a, int i, int j){
-    //     int temp = a[i];
-    //     a[i] = a[j];
-    //     a[j] = temp;
-    // }
-
-    private static void exch(Object[] a, int i, int j) {
-        Object swap = a[i];
-        a[i] = a[j];
-        a[j] = swap;
-    }
-
-    // private static void show(int[] a) {
-    //     for (int i = 0; i < a.length; i++) {
-    //         System.out.print(a[i]+" ");
-    //     }
-    // }
-
-    private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-    }
+    
 
     public static void main(String[] args){
         // int[] a = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
 
         Character[] a = {'M','E','R','G','E','S','O','R','T','E','X','A','M','P','L','E'};
-        show(a);
+        Util.show(a);
         sortBU(a);
         System.out.println(" ");
-        show(a);
+        Util.show(a);
 
     }
 
