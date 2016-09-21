@@ -4,8 +4,6 @@ import java.util.Random;
 
 public class Util{
 
-
-
      public static boolean less(int a, int b){
          return a < b? true:false;
      }
